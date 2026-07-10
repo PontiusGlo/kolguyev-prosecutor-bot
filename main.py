@@ -87,5 +87,44 @@ async def help(interaction: discord.Interaction):
 
     await interaction.response.send_message(embed=embed, ephemeral=True)
 
+class MedicalForm(discord.ui.Modal, title="Выдача медицинской справки"):
 
+    cid = discord.ui.TextInput(
+        label="CID гражданина",
+        placeholder="Например: 121375"
+    )
+
+    spravka = discord.ui.TextInput(
+        label="Тип справки",
+        placeholder="Медсправка ВУ / Госслужба / Оружие"
+    )
+
+    doctor = discord.ui.TextInput(
+        label="ФИО врача"
+    )
+
+    async def on_submit(self, interaction: discord.Interaction):
+
+        data = load()
+
+        data.append({
+            "cid": str(self.cid),
+            "type": str(self.spravka),
+            "doctor": str(self.doctor)
+        })
+
+        save(data)
+
+        embed = discord.Embed(
+            title="🏥 ЦМиК",
+            description="Выдана медицинская справка",
+            color=0x2ECC71
+        )
+
+        embed.add_field(name="CID", value=self.cid.value, inline=False)
+        embed.add_field(name="Тип", value=self.spravka.value, inline=False)
+        embed.add_field(name="Врач", value=self.doctor.value, inline=False)
+
+        await interaction.response.send_message(embed=embed)
+        
 bot.run(TOKEN)
