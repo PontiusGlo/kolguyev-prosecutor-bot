@@ -82,7 +82,7 @@ async def help(interaction: discord.Interaction):
 
     embed.add_field(
         name="Доступные команды",
-        value="/ping\n/info\n/help",
+        value="/ping\n/info\n/help\n/справка",
         inline=False
     )
 
