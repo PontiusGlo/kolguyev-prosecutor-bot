@@ -172,7 +172,7 @@ async def panel(interaction: discord.Interaction):
         inline=False
     )
 
-      embed.add_field(
+    embed.add_field(
         name="💻 Система",
         value=(
             "Добро пожаловать в АС «Надзор».\n"
