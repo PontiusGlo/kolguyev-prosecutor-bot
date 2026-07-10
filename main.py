@@ -60,7 +60,7 @@ async def info(interaction: discord.Interaction):
     embed = discord.Embed(
         title="⚖️ АС «Надзор»",
         description="Автоматизированная система прокурорского надзора.",
-        color=0x8B0000
+        color=0x0F2D5C
     )
 
     embed.add_field(
@@ -89,7 +89,7 @@ async def help(interaction: discord.Interaction):
 
     embed = discord.Embed(
         title="📖 Справка",
-        color=0x1F8B4C
+        color=0x0F2D5C
     )
 
     embed.add_field(
@@ -172,14 +172,14 @@ async def panel(interaction: discord.Interaction):
         inline=False
     )
 
-  embed.add_field(
-    name="💻 Система",
-    value=(
-        "Добро пожаловать в АС «Надзор».\n"
-        "Выберите необходимый раздел для начала работы."
-    ),
-    inline=False
-)
+      embed.add_field(
+        name="💻 Система",
+        value=(
+            "Добро пожаловать в АС «Надзор».\n"
+            "Выберите необходимый раздел для начала работы."
+        ),
+        inline=False
+    )
 
     embed.add_field(
         name="📊 Состояние",
