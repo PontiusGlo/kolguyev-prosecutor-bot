@@ -22,7 +22,7 @@ async def on_ready():
         print(e)
 
 
-@bot.tree.command(name="пинг", description="Проверка работы системы прокуратуры")
+@bot.tree.command(name="info", description="Информация о прокуратуре")
 async def ping(interaction: discord.Interaction):
     embed = discord.Embed(
         title="🏛️ Прокуратура Колгуевской автономной области",
