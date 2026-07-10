@@ -30,17 +30,25 @@ async def on_ready():
 async def ping(interaction: discord.Interaction):
 
     embed = discord.Embed(
-        title="🏛 Генеральная прокуратура",
-        description="**АГИС «Прокуратура» работает в штатном режиме.**",
-        color=0x0B6623
+        title="⚖️ АС «Надзор»",
+        description="**Автоматизированная система прокурорского надзора**",
+        color=0x0F2D5C
     )
 
-    embed.add_field(name="Статус", value="🟢 Онлайн", inline=True)
-    embed.add_field(name="Версия", value="1.0", inline=True)
+    embed.add_field(
+    name="Статус системы",
+    value="🟢 Работает",
+    inline=True
+)
+    embed.add_field(
+    name="Версия",
+    value="2.0",
+    inline=True
+)
     embed.add_field(name="Генеральный прокурор", value="Понтиус Гло", inline=False)
 
     embed.set_footer(
-    text="Генеральная прокуратура Колгуевского автономного округа"
+    text="⚖️ АС «Надзор» • На страже закона."
 )
 
     await interaction.response.send_message(embed=embed)
@@ -50,8 +58,8 @@ async def ping(interaction: discord.Interaction):
 async def info(interaction: discord.Interaction):
 
     embed = discord.Embed(
-        title="🏛 Генеральная прокуратура",
-        description="Информация о государственном органе.",
+        title="⚖️ АС «Надзор»",
+        description="Автоматизированная система прокурорского надзора.",
         color=0x8B0000
     )
 
@@ -70,7 +78,7 @@ async def info(interaction: discord.Interaction):
     )
 
     embed.set_footer(
-    text="Генеральная прокуратура Колгуевского автономного округа"
+    text="⚖️ АС «Надзор» • На страже закона."
 )
 
     await interaction.response.send_message(embed=embed)
@@ -102,7 +110,7 @@ class MainPanel(View):
 
     @discord.ui.button(
         label="📂 Производства",
-        style=discord.ButtonStyle.green
+        style=discord.ButtonStyle.primary
     )
     async def productions(self, interaction: discord.Interaction, button: discord.ui.Button):
         await interaction.response.send_message(
@@ -112,7 +120,7 @@ class MainPanel(View):
 
     @discord.ui.button(
         label="📝 Жалобы",
-        style=discord.ButtonStyle.blurple
+        style=discord.ButtonStyle.primary
     )
     async def complaints(self, interaction: discord.Interaction, button: discord.ui.Button):
         await interaction.response.send_message(
@@ -122,7 +130,7 @@ class MainPanel(View):
 
     @discord.ui.button(
         label="📄 Документы",
-        style=discord.ButtonStyle.grey
+        style=discord.ButtonStyle.primary
     )
     async def documents(self, interaction: discord.Interaction, button: discord.ui.Button):
         await interaction.response.send_message(
@@ -132,7 +140,7 @@ class MainPanel(View):
 
     @discord.ui.button(
         label="📚 Архив",
-        style=discord.ButtonStyle.red
+        style=discord.ButtonStyle.primary
     )
     async def archive(self, interaction: discord.Interaction, button: discord.ui.Button):
         await interaction.response.send_message(
@@ -148,9 +156,14 @@ class MainPanel(View):
 async def panel(interaction: discord.Interaction):
 
     embed = discord.Embed(
-        title="⚖️ Генеральная прокуратура",
-        description="**Колгуевского автономного округа**",
-        color=0x0B6623
+        title="⚖️ АС «Надзор»",
+        description=(
+    "**Автоматизированная система прокурорского надзора**\n\n"
+    "Генеральная прокуратура\n"
+    "Колгуевского автономного округа\n\n"
+    "*На страже закона.*"
+),
+        color=0x0F2D5C
     )
 
     embed.add_field(
@@ -159,11 +172,14 @@ async def panel(interaction: discord.Interaction):
         inline=False
     )
 
-    embed.add_field(
-        name="🏛 АИС «Прокурор»",
-        value="Добро пожаловать в электронную систему прокуратуры.",
-        inline=False
-    )
+  embed.add_field(
+    name="💻 Система",
+    value=(
+        "Добро пожаловать в АС «Надзор».\n"
+        "Выберите необходимый раздел для начала работы."
+    ),
+    inline=False
+)
 
     embed.add_field(
         name="📊 Состояние",
@@ -176,8 +192,8 @@ async def panel(interaction: discord.Interaction):
     )
 
     embed.set_footer(
-        text="Генеральная прокуратура Колгуевского автономного округа"
-    )
+    text="⚖️ АС «Надзор» • На страже закона."
+)
 
     await interaction.response.send_message(
         embed=embed,
