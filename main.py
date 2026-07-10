@@ -127,4 +127,9 @@ class MedicalForm(discord.ui.Modal, title="Выдача медицинской �
 
         await interaction.response.send_message(embed=embed)
         
+     
+@bot.tree.command(name="справка", description="Выдать медицинскую справку")
+async def spravka(interaction: discord.Interaction):
+    await interaction.response.send_modal(MedicalForm())
+        
 bot.run(TOKEN)
