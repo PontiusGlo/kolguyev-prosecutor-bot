@@ -22,12 +22,21 @@ async def on_ready():
         print(e)
 
 
-@bot.tree.command(name="ping", description="Проверка работы бота")
+@bot.tree.command(name="пинг", description="Проверка работы системы прокуратуры")
 async def ping(interaction: discord.Interaction):
-    await interaction.response.send_message(
-        "🟢 АГИС «Прокуратура» работает!",
-        ephemeral=True
+    embed = discord.Embed(
+        title="🏛️ Прокуратура Колгуевской автономной области",
+        description="**АГИС «Прокуратура» работает в штатном режиме.**",
+        color=0x1F8B4C
     )
+
+    embed.add_field(name="Статус", value="🟢 Онлайн", inline=True)
+    embed.add_field(name="Версия", value="v1.0", inline=True)
+    embed.add_field(name="Генеральный прокурор", value="Понтиус Гло", inline=False)
+
+    embed.set_footer(text="Колгуевская автономная область • 2008 год")
+
+    await interaction.response.send_message(embed=embed)
 
 
 bot.run(TOKEN)
